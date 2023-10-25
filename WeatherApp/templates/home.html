@@ -4,11 +4,11 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
+    <title>Weather Information System</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
   </head>
-  <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <body style="background-image: linear-gradient(to bottom right,#020024 0%, #090979 35%, #00d4ff 100% ); height: 760px;">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary" style="opacity: 0.5;">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">Wheather Information System</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
@@ -22,7 +22,7 @@
       </ul>
       <form class="d-flex" action="/" method="post" role="search">
         <input class="form-control me-2" type="text" name="city" placeholder="Enter city name" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Check</button>
+        <button class="btn btn-outline-primary" type="submit">Check</button>
       </form>
       <form class="d-flex mx-3" role="search">
         <a class="nav-link" href="/loginas">
@@ -32,14 +32,15 @@
     </div>
   </div>
 </nav>
+<div style="background-image: url('../static/bg.jpg'); opacity: 0.5;"><img src="../static/clear-sky.png" alt="img" class="w-25 " style="display: block;  margin-left: auto;  margin-right: auto;  width: 50%;"></div>
 {% if city_name %}
-<div class="my-5 mx-auto w-50 text-center">
-    <ul class="list-group list-group-flush">
-        <li class="list-group-item"><div class="output"><h3 style="color:steelblue; font-size:22px; font-weight:bold;  font-family:'Courier New', Courier, monospace; ">CONDITION: {{condition}}</h3></div></li>
-        <li class="list-group-item"><div class="output"><h3 style="color:steelblue; font-size:22px; font-weight:bold;  font-family:'Courier New', Courier, monospace; ">TEMPERATURE: {{temperature}} °C</h3></div></li>
-        <li class="list-group-item"><div class="output"><h3 style="color:steelblue; font-size:22px; font-weight:bold;  font-family:'Courier New', Courier, monospace; ">HUMIDITY: {{humidity}} %</h3></div></li>
-        <li class="list-group-item"><div class="output"><h3 style="color:steelblue; font-size:22px; font-weight:bold;  font-family:'Courier New', Courier, monospace; ">PRESSURE: {{pressure}} mb</h3></div></li>
-        <li class="list-group-item"><div class="output"><h3 style="color:steelblue; font-size:22px; font-weight:bold;  font-family:'Courier New', Courier, monospace; ">Wind Speed: {{wind}} Km/h</h3></div></li>
+<div class="my-5 mx-auto w-50 text-center" style="opacity: 0.8">
+    <ul class="list-group list-group-flush bg-transparent" >
+        <li class="list-group-item bg-transparent" ><div class="output" ><h3 style="color:white; font-size:22px; font-weight:bold;  font-family:'Courier New', Courier, monospace; ">CONDITION: {{condition}}</h3></div></li>
+        <li class="list-group-item bg-transparent" ><div class="output" ><h3 style="color:white; font-size:22px; font-weight:bold;  font-family:'Courier New', Courier, monospace; ">TEMPERATURE: {{temperature}} °C</h3></div></li>
+        <li class="list-group-item bg-transparent" ><div class="output" ><h3 style="color:white; font-size:22px; font-weight:bold;  font-family:'Courier New', Courier, monospace; ">HUMIDITY: {{humidity}} %</h3></div></li>
+        <li class="list-group-item bg-transparent" ><div class="output" ><h3 style="color:white; font-size:22px; font-weight:bold;  font-family:'Courier New', Courier, monospace; ">PRESSURE: {{pressure}} mb</h3></div></li>
+        <li class="list-group-item bg-transparent" ><div class="output" ><h3 style="color:white; font-size:22px; font-weight:bold;  font-family:'Courier New', Courier, monospace; ">Wind Speed: {{wind}} Km/h</h3></div></li>
 
 
         
@@ -116,4 +117,4 @@
     <div class="head-git"><h2>For Source Code of this Project , Visit our GIT-HUB page <a href="https://github.com/R-Coder07/Cloud-Wheather-Website" class="nav__link">Github-Page</a></h2></div> 
     <div class="head"><h2> Copyright &copy; Cloud Weather 2021</h2></div> 
 </body>
-</html> -->
+ </html>-->

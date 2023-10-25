@@ -41,15 +41,25 @@ def index():
 def loginas():
     return render_template('loginpage.html')
 
-@app.route('/login/<int:Id>')
+@app.route('/login/<int:Id>',methods=['GET', 'POST'])
 def login(Id):
-    if Id==1:
-        return render_template('login.html',role="Admin")
-    elif Id==2:
-        return render_template('login.html',role="Regional Station Manager")
-    return render_template('login.html',role="Engineer")
+    if request.method == 'POST':
+        a=request.form['user']
+        return a
+
+    else:
+
+        if Id==1:
+            return render_template('login.html',role="Admin")
+        elif Id==2:
+            return render_template('login.html',role="Regional Station Manager")
+        return render_template('login.html',role="Engineer")       
 
 
+
+@app.route('/dashboard',methods=['POST'])
+def dashboard():
+    return request.form.get('user')
 
 if __name__ == '__main__':
     app.run(debug=True)
