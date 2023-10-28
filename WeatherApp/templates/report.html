@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report</title>
+</head>
+<body>
+    <h3>Instrument data</h3>
+    <ul class="list-group">
+        <li class="list-group-item">{{ instrument_data.Id }}</li>
+        <li class="list-group-item">{{ instrument_data.efficiency }}</li>
+        <li class="list-group-item">{{ instrument_data.Precision }}</li>
+        <li class="list-group-item">{{ instrument_data.Installdate }}</li>
+   
+    </ul>
+    <h3>Complains registered</h3>
+    <ul class="list-group">
+        {% for i in complains %}
+        <li class="list-group-item">{{ i.Id }}</li>
+        <li class="list-group-item">{{ i.instrumentID }}</li>
+        <li class="list-group-item">{{ i.details }}</li>
+        <li class="list-group-item">{{ i.date }}</li>
+        <li class="list-group-item">{{ i.Resolvedby }}</li>
+        <li class="list-group-item">{{ i.is_active }}</li>
+
+        {% endfor %}
+    </ul>
+
+</body>
+</html>
