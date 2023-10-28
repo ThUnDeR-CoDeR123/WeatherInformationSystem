@@ -8,22 +8,22 @@
 <body>
     <h3>Instrument data</h3>
     <ul class="list-group">
-        <li class="list-group-item">{{ instrument_data.Id }}</li>
-        <li class="list-group-item">{{ instrument_data.efficiency }}</li>
-        <li class="list-group-item">{{ instrument_data.Precision }}</li>
-        <li class="list-group-item">{{ instrument_data.Installdate }}</li>
+        <li class="list-group-item">Id : {{ instrument_data.Id }}</li>
+        <li class="list-group-item">efficiency : {{ instrument_data.efficiency }}</li>
+        <li class="list-group-item">Precision : {{ instrument_data.Precision }}</li>
+        <li class="list-group-item">Installdate : {{ instrument_data.Installdate }}</li>
    
     </ul>
     <h3>Complains registered</h3>
     <ul class="list-group">
         {% for i in complains %}
-        <li class="list-group-item">{{ i.Id }}</li>
-        <li class="list-group-item">{{ i.instrumentID }}</li>
-        <li class="list-group-item">{{ i.details }}</li>
-        <li class="list-group-item">{{ i.date }}</li>
-        <li class="list-group-item">{{ i.Resolvedby }}</li>
-        <li class="list-group-item">{{ i.is_active }}</li>
-
+        <li class="list-group-item"> ID : {{ i.Id }}</li>
+        <li class="list-group-item">instrumentID : {{ i.instrumentID }}</li>
+        <li class="list-group-item">details : {{ i.details }}</li>
+        <li class="list-group-item">date : {{ i.date }}</li>
+        <li class="list-group-item">Assigned Engineer : {{ i.Resolvedby }}</li>
+        <li class="list-group-item">is_active : {{ i.is_active }}</li>
+        <br>
         {% endfor %}
     </ul>
 
