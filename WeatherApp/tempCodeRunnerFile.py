@@ -1,1 +1,1 @@
-singleton
+from db.singleton import db

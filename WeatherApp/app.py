@@ -4,7 +4,8 @@ from flask import Flask,render_template,request,blueprints
 from db.singleton import db
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
-from blueprints.User import blueprint_generateReport,blueprint_statusview,blueprint_assigntask,blueprint_dashboardAdmin,blueprint_dashboardStManager,blueprint_loginAdmin,blueprint_loginas,blueprint_loginStManager
+from blueprints.User import *
+from blueprints.Endpoints import *
 import requests
 
 app = Flask(__name__)
@@ -12,6 +13,7 @@ app = Flask(__name__)
 
 app.config['SQLALCHEMY_DATABASE_URI']="sqlite:///db.sqlite3"
 app.config['SECRECT_KEY']  = 'secret_key'
+app.secret_key = 'secret_key'
 db.init_app(app)
 #make a route and render all the html templates in this route
 
@@ -25,10 +27,20 @@ app.register_blueprint(blueprint_loginas)
 app.register_blueprint(blueprint_loginStManager)
 app.register_blueprint(blueprint_statusview)
 app.register_blueprint(blueprint_generateReport)
+app.register_blueprint(blueprint_adminloginpage)
+app.register_blueprint(blueprint_StManagerloginpage)
+app.register_blueprint(blueprint_engineerloginpage)
+app.register_blueprint(blueprint_loginEngineer)
+app.register_blueprint(blueprint_dashboardEngineer)
+app.register_blueprint(blueprint_statusView)
+app.register_blueprint(blueprint_issuetask)
+app.register_blueprint(blueprint_statusupdate)
 
 
 
-    
+
+
+#________________________________________________________________HOME ROUTES________________________________________________________________
 @app.route('/', methods=['GET', 'POST'])
 def index():
     if request.method == 'POST':
@@ -57,6 +69,7 @@ def index():
     else:
         return render_template('home.html') 
     
+
 
 if __name__ == '__main__':
     app.config['SECRECT_KEY']  = 'secret_key'

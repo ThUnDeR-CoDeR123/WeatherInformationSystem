@@ -18,7 +18,7 @@
   <body style="background-image: linear-gradient(to bottom right, black, blue, rgb(44, 85, 190),rgb(110, 227, 233)); height: 760px;">
     <nav class="navbar navbar-expand-lg bg-transparent text-light" style="opacity: 0.5; border-radius: 10px; padding: auto; background-color: black;">
         <div class="container-fluid">
-          <a class="navbar-brand text-light" href="#">Admin Dashboard</a>
+          <a class="navbar-brand text-light" href="#">Engineer Dashboard</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -30,7 +30,7 @@
             </ul>
           
           </div>
-          <form class="d-flex" action="/dashboardAdmin" method="post" role="search">
+          <form class="d-flex" action="/dashboardEngineer" method="post" role="search">
             <input class="form-control me-2" type="text" name="city" placeholder="Enter city name" aria-label="Search">
             <button class="btn btn-outline-primary" type="submit">Check</button>
           </form>
@@ -56,50 +56,23 @@
 </div>
 {% endif %}
         </div>
-        <div class="row">
-
-          <div class="card col mx-2 bg-transparent border-primary " style="width: 18rem; opacity: 0.5;">
+        <div class="col">
+          <div class="card col mx-2 bg-transparent border-primary" style="width: 18rem;">
             <div class="card-body">
-              <h5 class="card-title text-light">Assign Tasks</h5>
-              <form action="/assigntask" class="form-control">
-                <div class="form-group ">
-                  <label for="inputEngnr">Engineer</label>
-                  <select id="inputEngnr" name="Engineer" class="form-control">
-                    <option selected>Choose...</option>
-                    {% for item in engnr %} 
-                    <option>{{ item }}</option>
-                    {% endfor %}
-                  </select>
-                </div>
-                <div class="form-group ">
-                  <label for="inputTask">Complain ID</label>
-                  <select id="inputTask" name="Complain" class="form-control" style="color: black;">
-                    <option selected>Choose...</option>
-                    {% for item in tasks %} 
-                    <option style="color: black;">{{ item }}</option>
-
-                    {% endfor %}
-                  </select>
-                </div>
-                <input type="submit" class="btn btn-primary" />
-              </form>
-            </div>
-          </div>
-          <div class="card col mx-2 bg-transparent border-primary" style="width: 18rem; opacity: 0.5;">
-            <div class="card-body">
-              <h5 class="card-title bg-transparent text-light">Status View</h5>
-              <form action="/statusview"class="form-control">
-                <div class="form-group ">
+              <h5 class="card-title bg-transparent text-light">Status Update</h5>
+              <form action="/status_update",method="post">
+                <div class="form-group col-md-4">
                   <label for="insID">Complain ID</label>
-                  <select id="insID" name="instrument" class="form-control">
+                  <select id="insID" name="complain_id" class="form-control">
                     <option selected>Choose...</option>
-                    {% for item in inss %} 
+                    {% for item in comp %} 
                     <option>{{ item }}</option>
                     {% endfor %}
                   </select>
                 </div>
-                <input type="submit" class="btn btn-primary" />
+                <input type="submit" class="btn btn-primary" placeholder="Update" />
               </form>
+              <a href="#" class="card-link text-light">Instrument Status View</a>
               {%if chk%}
                 {%if chk==2%}
               <span class="badge rounded-pill text-bg-success mb-5">Completed</span>
@@ -110,11 +83,11 @@
               <!-- <a href="#" class="card-link text-light">Instrument Status View</a> -->
             </div>
           </div>
-          <div class="card col mx-2 bg-transparent border-primary" style="width: 18rem; opacity: 0.5;">
+          <div class="card col mx-2 bg-transparent border-primary" style="width: 18rem;">
             <div class="card-body">
               <h5 class="card-title text-light">Generate Report</h5>
-              <form action="/generateReport" class="form-control" >
-                <div class="form-group ">
+              <form action="/generateReport">
+                <div class="form-group col-md-4">
                   <label for="insID">Instrument ID</label>
                   <input class="form-control" type="number" name="ID" placeholder="Enter Instrument ID">
                 </div>
