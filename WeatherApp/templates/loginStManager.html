@@ -2,7 +2,10 @@
 {% block body %}
     <div class="my-10 mx-auto w-50 align-content-between flex-column p-5 m-5" style="background-color: white; opacity: 0.6; border-radius: 10px;">
         <h4 style="color:steelblue; font-size:22px; font-weight:bold;  font-family:'Courier New', Courier, monospace; text-align: center; ">Login as {{role}}</h4>
-        <form action="/dashboardStManager", method="post">
+        {% if error %}
+        <p class=error><strong>Error:</strong> {{ error }}
+      {% endif %}
+        <form action="/loginStManager", method="post">
             <!-- Email input -->
             <div class="form-outline mb-4">
               <input type="email" id="form2Example1" name="user" class="form-control" />
@@ -11,7 +14,7 @@
           
             <!-- Password input -->
             <div class="form-outline mb-4">
-              <input type="password" id="form2Example2" class="form-control" />
+              <input type="password" id="form2Example2" name="pass"class="form-control" />
               <label class="form-label" for="form2Example2">Password</label>
             </div>
           
